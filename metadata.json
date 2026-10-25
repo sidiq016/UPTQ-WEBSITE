@@ -1,0 +1,49 @@
+{
+  "name": "UPTQ UIN Sunan Gunung Djati Bandung",
+  "description": "Portal resmi Unit Pengembangan Tilawatil Qur'an (UPTQ) UIN Sunan Gunung Djati Bandung. Wadah pembinaan seni Islam, qira'at, tahfidz, dan prestasi Qur'ani.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+ Loading your app
+Enjoy these tips while you wait
+Tip illustration
+Use Google Search data
+
+Connect your app to real-time Google Search results. Build an agent that can discuss current events, cite recent news, or fact-check information.
+Tip illustration
+Use Google Maps data
+
+Connect your app to real-time Google Maps data. Build an agent that can pull information about places, routes, or directions.
+Tip illustration
+Integrasikan Berita dan Pengumuman Terbaru
+
+Tambahkan fitur untuk menampilkan berita, kegiatan, dan pengumuman terbaru dari UPTQ. Ini akan menjaga website tetap dinamis dan informatif.
+Tip illustration
+Use Custom Instructions
+
+Save custom instructions to define app styles, frameworks, or other preferences to ensure Gemini builds exactly what you have in mind.
+Tip illustration
+Buat Bagian Profil UPTQ
+
+Tampilkan informasi detail tentang UPTQ, termasuk visi, misi, sejarah, dan struktur organisasi. Ini akan memberikan gambaran profesional kepada pengunjung.
+Tip illustration
+Buat Galeri Kegiatan
+
+Tampilkan foto dan video dari kegiatan-kegiatan UPTQ dalam sebuah galeri yang menarik. Ini akan memberikan kesan visual yang kuat dan menunjukkan aktivitas organisasi.
+Tip illustration
+Use your API key
+
+Switch to your API key whenever you run out of quota, and we'll automatically switch back to your free quota when it resets.
+Tip illustration
+Create & edit images
+
+Create and edit images from text prompts, optimized for speed and high-volume use cases.
+Tip illustration
+Add database and auth
+
+Add persistence to your app and keep track of user data with Firestore. Use Google Sign-In with Firebase Auth to securely identify users.
+Tip illustration
+Generate video from text
+
+Add video generation to your creative app. Let users turn their blog posts, scripts, or product descriptions into short video clips.
+Error: Quota exceeded. Please try again later.
