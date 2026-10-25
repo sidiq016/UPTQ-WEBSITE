@@ -28,23 +28,29 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz }) => {
   return (
     <section className="relative overflow-hidden bg-ocean-hero text-white pt-12 pb-20 border-b border-sky-900/60">
       
+      {/* Wallpaper Latar Belakang */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/wallpaper.png" 
+          alt="Wallpaper UPTQ" 
+          className="w-full h-full object-cover opacity-25"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent"></div>
+      </div>
+
       {/* Decorative Rotating Sacred Geometry Mandala */}
-      <div className="absolute -top-32 -right-32 w-[620px] h-[620px] opacity-15 pointer-events-none animate-spin-slow">
+      <div className="absolute -top-32 -right-32 w-[620px] h-[620px] opacity-15 pointer-events-none animate-spin-slow z-10">
         <svg viewBox="0 0 400 400" className="w-full h-full text-emerald-400" fill="none" stroke="currentColor">
           <circle cx="200" cy="200" r="190" strokeWidth="1" strokeDasharray="6 4" />
           <circle cx="200" cy="200" r="150" strokeWidth="1.5" />
           <circle cx="200" cy="200" r="110" strokeWidth="1" strokeDasharray="3 3" />
-          {/* 8-pointed star rosette */}
           <polygon points="200,40 240,160 360,200 240,240 200,360 160,240 40,200 160,160" strokeWidth="1.5" />
           <polygon points="200,40 240,160 360,200 240,240 200,360 160,240 40,200 160,160" strokeWidth="1.5" transform="rotate(45 200 200)" />
           <circle cx="200" cy="200" r="60" strokeWidth="2" />
         </svg>
       </div>
 
-      {/* Radiant ambient light pools */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-r from-sky-500/15 via-emerald-500/15 to-teal-500/10 blur-3xl pointer-events-none" />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-20">
         
         {/* Top Kicker Bar */}
         <div className="flex flex-wrap items-center justify-between gap-4 mb-8 pb-4 border-b border-sky-800/40 text-xs">
@@ -93,7 +99,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz }) => {
             <div className="flex flex-wrap items-center gap-3.5 pt-2">
               <button
                 onClick={onOpenRegister}
-                className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 active:from-emerald-700 active:to-teal-700 rounded-xl shadow-lg shadow-emerald-950/50 hover:shadow-emerald-500/25 transition-all hover:-translate-y-0.5 cursor-pointer"
+                className="inline-flex items-center gap-2.5 px-6 py-3.5 text-sm font-bold text-white bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 rounded-xl shadow-lg shadow-emerald-950/50 transition-all hover:-translate-y-0.5 cursor-pointer"
               >
                 <span>Daftar Anggota (Oprec 2026)</span>
                 <ArrowRight className="w-4 h-4" />
@@ -122,9 +128,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz }) => {
                 <button
                   onClick={handleToggleAudio}
                   className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all cursor-pointer ${
-                    isPlayingHeroTrack
-                      ? 'bg-rose-600 text-white shadow-md'
-                      : 'bg-emerald-500 text-white hover:bg-emerald-400 shadow-md'
+                    isPlayingHeroTrack ? 'bg-rose-600 text-white shadow-md' : 'bg-emerald-500 text-white hover:bg-emerald-400 shadow-md'
                   }`}
                   title={isPlayingHeroTrack ? 'Hentikan Audio' : 'Dengarkan Melodi Maqamat'}
                 >
@@ -143,7 +147,6 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz }) => {
                 </div>
               </div>
 
-              {/* Soundwave Visualizer Bars */}
               <div className="flex items-end gap-1 h-6">
                 {[40, 75, 55, 90, 60, 85, 45, 95].map((height, i) => (
                   <span
@@ -159,17 +162,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz }) => {
 
           </div>
 
-          {/* Right Column (5 cols): Modern Luminous Islamic Showcase Card */}
+          {/* Right Column (5 cols): Modern Luminous Islamic Showcase Card with LOGO */}
           <div className="lg:col-span-5">
-            <div className="relative rounded-3xl bg-gradient-to-b from-[#0f345c]/90 via-[#0a233f]/95 to-[#07192f] border border-sky-700/50 p-7 shadow-2xl backdrop-blur-xl space-y-6 glow-ocean">
+            <div className="relative rounded-3xl bg-gradient-to-b from-[#0f345c]/90 via-[#0a233f]/95 to-[#07192f] border border-sky-700/50 p-7 shadow-2xl backdrop-blur-xl space-y-6">
               
-              {/* Header of Box */}
+              {/* Header with Logo */}
               <div className="flex items-center justify-between pb-4 border-b border-sky-800/60">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-500 to-sky-600 p-0.5 shadow-md">
-                    <div className="w-full h-full bg-[#07192f] rounded-[10px] flex items-center justify-center">
-                      <span className="font-amiri text-2xl font-bold text-emerald-300">ق</span>
-                    </div>
+                  <div className="w-12 h-12 rounded-xl bg-white p-1 shadow-md flex items-center justify-center overflow-hidden">
+                    <img src="/logo.png" alt="Logo UPTQ" className="w-full h-full object-contain" />
                   </div>
                   <div>
                     <span className="text-xs font-bold text-white tracking-wide block">
@@ -205,9 +206,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz }) => {
               {/* 3 Pillars of Excellence */}
               <div className="space-y-3 text-xs text-slate-200">
                 <div className="flex items-start gap-3 p-2.5 rounded-xl bg-slate-900/40 border border-sky-900/40">
-                  <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0 font-bold">
-                    ✓
-                  </div>
+                  <div className="w-7 h-7 rounded-lg bg-emerald-500/20 flex items-center justify-center text-emerald-400 shrink-0 font-bold">✓</div>
                   <div>
                     <strong className="text-white block">Dewan Pembina Qari Nasional</strong>
                     <span className="text-slate-300 text-[11px]">Bimbingan langsung dewan hakim LPTQ Jawa Barat & dosen pakar tafsir UIN.</span>
@@ -215,30 +214,17 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz }) => {
                 </div>
 
                 <div className="flex items-start gap-3 p-2.5 rounded-xl bg-slate-900/40 border border-sky-900/40">
-                  <div className="w-7 h-7 rounded-lg bg-sky-500/20 flex items-center justify-center text-sky-300 shrink-0 font-bold">
-                    ✓
-                  </div>
+                  <div className="w-7 h-7 rounded-lg bg-sky-500/20 flex items-center justify-center text-sky-300 shrink-0 font-bold">✓</div>
                   <div>
                     <strong className="text-white block">Fasilitas Terpadu & Studio</strong>
                     <span className="text-slate-300 text-[11px]">Baitul Tahfidz, studio kaligrafi kanvas, aula maqamat, dan podcast dakwah.</span>
                   </div>
                 </div>
-
-                <div className="flex items-start gap-3 p-2.5 rounded-xl bg-slate-900/40 border border-sky-900/40">
-                  <div className="w-7 h-7 rounded-lg bg-amber-500/20 flex items-center justify-center text-amber-300 shrink-0 font-bold">
-                    ✓
-                  </div>
-                  <div>
-                    <strong className="text-white block">Jejaring MTQ Mahasiswa Nasional</strong>
-                    <span className="text-slate-300 text-[11px]">Pengiriman delegasi resmi kejuaraan MTQMN, STQH, dan festival antar bangsa.</span>
-                  </div>
-                </div>
               </div>
 
-              {/* Bottom Quick Status */}
               <div className="pt-3 border-t border-sky-800/60 flex items-center justify-between text-xs text-slate-400">
                 <span>Status Pendaftaran 2026</span>
-                <span className="text-emerald-400 font-semibold">Telah Dibuka (Terbuka Semua Jurusan)</span>
+                <span className="text-emerald-400 font-semibold">Telah Dibuka</span>
               </div>
 
             </div>
@@ -246,22 +232,38 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz }) => {
 
         </div>
 
-        {/* 4-Column Stat Matrix in Full Width Row */}
-        <div className="mt-16 pt-8 border-t border-sky-800/50 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+        {/* 5 Foto BA (Banner/Aksi) Showcase Row */}
+        <div className="mt-16 pt-10 border-t border-sky-800/50">
+          <div className="text-center mb-6">
+            <span className="text-xs uppercase tracking-widest text-emerald-400 font-bold">Dokumentasi & Galeri Kegiatan</span>
+            <h3 className="text-xl font-bold text-white mt-1">Aksi & Potret Pembinaan UPTQ</h3>
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+            <div className="rounded-2xl overflow-hidden border border-sky-800/60 shadow-lg h-44 bg-slate-900">
+              <img src="/ba-1.png" alt="BA 1" className="w-full h-full object-cover hover:scale-105 transition-transform" />
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-sky-800/60 shadow-lg h-44 bg-slate-900">
+              <img src="/ba-2.png" alt="BA 2" className="w-full h-full object-cover hover:scale-105 transition-transform" />
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-sky-800/60 shadow-lg h-44 bg-slate-900">
+              <img src="/ba-3.png" alt="BA 3" className="w-full h-full object-cover hover:scale-105 transition-transform" />
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-sky-800/60 shadow-lg h-44 bg-slate-900">
+              <img src="/ba-4.png" alt="BA 4" className="w-full h-full object-cover hover:scale-105 transition-transform" />
+            </div>
+            <div className="rounded-2xl overflow-hidden border border-sky-800/60 shadow-lg h-44 bg-slate-900 col-span-2 sm:col-span-1">
+              <img src="/ba-5.png" alt="BA 5" className="w-full h-full object-cover hover:scale-105 transition-transform" />
+            </div>
+          </div>
+        </div>
+
+        {/* 4-Column Stat Matrix */}
+        <div className="mt-12 pt-8 border-t border-sky-800/50 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {ORG_DETAILS.stats.map((s, idx) => (
-            <div
-              key={idx}
-              className="p-5 rounded-2xl bg-[#091f38]/80 border border-sky-800/60 backdrop-blur-md hover:border-emerald-400/50 transition-colors space-y-1"
-            >
-              <div className="text-3xl sm:text-4xl font-black text-white font-mono tabular-nums tracking-tight">
-                {s.value}
-              </div>
-              <div className="text-xs font-semibold text-slate-200">
-                {s.label}
-              </div>
-              <div className="text-[11px] text-emerald-400 font-medium">
-                {s.unit}
-              </div>
+            <div key={idx} className="p-5 rounded-2xl bg-[#091f38]/80 border border-sky-800/60 backdrop-blur-md space-y-1">
+              <div className="text-3xl sm:text-4xl font-black text-white font-mono tabular-nums tracking-tight">{s.value}</div>
+              <div className="text-xs font-semibold text-slate-200">{s.label}</div>
+              <div className="text-[11px] text-emerald-400 font-medium">{s.unit}</div>
             </div>
           ))}
         </div>
