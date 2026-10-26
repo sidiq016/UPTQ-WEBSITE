@@ -6,9 +6,10 @@ import { maqamEngine } from '../utils/audioSynthesizer';
 interface HeroProps {
   onOpenRegister: () => void;
   onOpenQuiz: () => void;
+  heroAmbassadorImage?: string; // Prop tambahan untuk foto Brand Ambassador dinamis
 }
 
-export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz }) => {
+export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz, heroAmbassadorImage }) => {
   const [isPlayingHeroTrack, setIsPlayingHeroTrack] = useState(false);
 
   const heroMelody = [261.63, 293.66, 329.63, 349.23, 392.00, 349.23, 329.63, 261.63];
@@ -162,7 +163,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz }) => {
 
           </div>
 
-          {/* Right Column (5 cols): Modern Luminous Islamic Showcase Card with LOGO */}
+          {/* Right Column (5 cols): Modern Luminous Islamic Showcase Card with DYNAMIC AMBASSADOR IMAGE */}
           <div className="lg:col-span-5">
             <div className="relative rounded-3xl bg-gradient-to-b from-[#0f345c]/90 via-[#0a233f]/95 to-[#07192f] border border-sky-700/50 p-7 shadow-2xl backdrop-blur-xl space-y-6">
               
@@ -187,19 +188,15 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz }) => {
                 </span>
               </div>
 
-              {/* Quran Calligraphy Showcase */}
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-[#06182c] to-[#0d2a4a] border border-emerald-400/20 text-center space-y-3 relative overflow-hidden">
-                <div className="text-[11px] tracking-wider uppercase text-emerald-400 font-semibold">
-                  Kalamullah yang Maha Agung
-                </div>
-                <div className="font-amiri text-3xl text-emerald-200 font-bold leading-relaxed px-2">
-                  وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا
-                </div>
-                <div className="text-xs text-slate-300 italic">
-                  "Dan bacalah Al-Qur'an itu dengan perlahan-lahan (tartil)."
-                </div>
-                <div className="text-[11px] text-sky-400 font-medium">
-                  QS. Al-Muzzammil: 4
+              {/* Brand Ambassador / Visual Showcase Frame (Menampilkan Foto Dinamis) */}
+              <div className="p-4 rounded-2xl bg-gradient-to-br from-[#06182c] to-[#0d2a4a] border border-emerald-400/20 text-center space-y-3 relative overflow-hidden flex flex-col items-center justify-center min-h-[190px]">
+                <img 
+                  src={heroAmbassadorImage || "/developer.png"} 
+                  alt="Brand Ambassador UPTQ" 
+                  className="w-28 h-28 object-cover rounded-2xl border-2 border-emerald-400/50 shadow-xl mb-1 object-top"
+                />
+                <div className="text-[11px] tracking-wider uppercase text-emerald-300 font-bold">
+                  Kader Teladan UPTQ 2026
                 </div>
               </div>
 
