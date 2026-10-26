@@ -130,6 +130,7 @@ export interface SiteConfigData {
   adminAccount: AccountProfileData;
   developerAccount: AccountProfileData;
 }
+
 export const DEFAULT_SITE_CONFIG: SiteConfigData = {
   brandTitle: 'UPTQ UIN BANDUNG',
   brandSubtitle: 'Bersama Al-Qur\'an, Meraih Kemuliaan',
