@@ -148,7 +148,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
     '/ba4.png',
     '/ba5.png',
   ],
-  heroAmbassadorName: 'Risqi',
+  heroAmbassadorName: 'Risqi.',
   heroAmbassadorRole: 'Brand Ambassador & Ketua Umum UPTQ UIN SGD',
   heroTitle: 'Bersama Al-Qur\'an, Meraih Kemuliaan.',
   heroSubtitle:
@@ -169,8 +169,8 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
     'UPTQ UIN Bandung lahir dari semangat mahasiswa untuk menghadirkan ruang pengembangan potensi Qur\'ani yang inklusif, profesional, dan berkelanjutan.',
   historyP2:
     'Dari kelompok kajian sederhana, UPTQ berkembang menjadi organisasi yang aktif mencetak qari-qariah, hafiz-hafizah, kaligrafer, dan generasi Qur\'ani berprestasi di tingkat regional hingga nasional.',
-  historyMainImg: '/ba1.png',
-  historySmallImg: '/ba2.png',
+  historyMainImg: '/sejarah.png',
+  historySmallImg: '/sejarah.png',
   historyBadgeNum: '35+',
   historyBadgeText: 'Tahun Berkarya',
   visionEyebrow: 'Arah Organisasi',
@@ -190,7 +190,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
   profileTitle: 'Rumah Tumbuh Generasi Qur\'ani UIN Bandung',
   profileDesc:
     'UPTQ merupakan unit kegiatan mahasiswa yang bergerak dalam pembinaan minat, bakat, dan prestasi di bidang Al-Qur\'an. Kami percaya setiap mahasiswa memiliki jalan unik untuk dekat dengan kitab suci.',
-  profileImg: '/ba3.png',
+  profileImg: '/profil.png',
   profileQuote: '“Bukan sekadar organisasi, tetapi keluarga dalam perjalanan mencintai Al-Qur\'an.”',
   leaders: [
     {
@@ -221,7 +221,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
       major: 'Mahasiswa Uin Sgd',
       img: '/kepengurusan4.png',
     },
-    {
+  ],
   divisions: [
     {
       id: 'div-1',
@@ -283,7 +283,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
     'Kaligrafi',
     'Fahmil Qur\'an',
     'Syarhil Qur\'an',
-    'Tafsir Qur\'an',
+    'Tafsir Qur\'ان',
     'Karya Tulis',
     'Hadrah',
   ],
