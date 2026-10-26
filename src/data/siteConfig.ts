@@ -130,11 +130,11 @@ export interface SiteConfigData {
   adminAccount: AccountProfileData;
   developerAccount: AccountProfileData;
 }
-
 export const DEFAULT_SITE_CONFIG: SiteConfigData = {
   brandTitle: 'UPTQ UIN BANDUNG',
   brandSubtitle: 'Bersama Al-Qur\'an, Meraih Kemuliaan',
-  heroKicker: 'Unit Pengembangan Tilawatil Qur\'ان UIN SGD Bandung ✨',
+  brandLogoUrl: '/logo.png',
+  heroKicker: 'Unit Pengembangan Tilawatil Qur\'an UIN SGD Bandung ✨',
   heroLeftWebsiteTitle1: 'UPTQ UIN',
   heroLeftWebsiteTitle2: 'BANDUNG',
   heroRightCabinetTitle1: 'KABINET',
