@@ -290,12 +290,12 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
   newsList: [
     {
       id: 'nw-1',
-      category: 'Prestasi',
-      date: '28 April 2025',
-      author: 'Redaksi UPTQ',
-      title: 'Delegasi UPTQ Raih Lima Juara pada MTQ Mahasiswa Tingkat Nasional',
+      category: 'Tasyakuran',
+      date: '02 Oktober 2026',
+      author: 'PDD UPTQ',
+      title: 'WILUJENG MILANGKALA UPTQ KE-34',
       excerpt:
-        'Prestasi membanggakan kembali diraih melalui cabang tilawah, kaligrafi, fahmil, dan karya tulis Al-Qur\'an.',
+        'Keluarga Besar UPTQ UIN Bandung mengucapkan selamat memperingati hari lahir UPTQ yang ke-34. Di hari yang penuh berkah ini',
       img: '/berita.png',
       featured: true,
     },
