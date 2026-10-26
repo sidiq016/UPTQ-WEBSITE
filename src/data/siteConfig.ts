@@ -145,7 +145,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
     '/ba2.png',
     '/ba3.png',
     '/ba4.png',
-    'ba5.png',
+    '/ba5.png',
   ],
   heroAmbassadorName: 'Risqi',
   heroAmbassadorRole: 'Brand Ambassador & Ketua Umum UPTQ UIN SGD',
