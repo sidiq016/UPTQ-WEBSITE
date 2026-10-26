@@ -63,11 +63,9 @@ export interface AccountProfileData {
 }
 
 export interface SiteConfigData {
-  // Brand & Header
   brandTitle: string;
   brandSubtitle: string;
   brandLogoUrl?: string;
-  // Hero Section (Foto 2 Style: Center Brand Ambassador + Left Website Name + Right Cabinet Name + Bottom Website Purpose)
   heroKicker: string;
   heroLeftWebsiteTitle1: string;
   heroLeftWebsiteTitle2: string;
@@ -86,9 +84,7 @@ export interface SiteConfigData {
   heroBgImage: string;
   heroVerseArabic: string;
   heroVerseTranslation: string;
-  // Developer WhatsApp for 3x Failed Login Escalation
   developerWhatsapp: string;
-  // Sejarah Section
   historyEyebrow: string;
   historyTitle: string;
   historyHighlight: string;
@@ -98,34 +94,26 @@ export interface SiteConfigData {
   historySmallImg: string;
   historyBadgeNum: string;
   historyBadgeText: string;
-  // Visi & Misi Section
   visionEyebrow: string;
   visionHeading: string;
   visionHighlight: string;
   visionSubheading: string;
   visionText: string;
   missions: string[];
-  // Profil Section
   profileEyebrow: string;
   profileTitle: string;
   profileDesc: string;
   profileImg: string;
   profileQuote: string;
-  // Kepengurusan Section
   leaders: LeaderItemData[];
-  // Bidang Organisasi Section
   divisions: DivisionItemData[];
-  // Program Pembinaan Section
   pembinaanEyebrow: string;
   pembinaanTitle: string;
   pembinaanDesc: string;
   pembinaanImg: string;
   programsList: string[];
-  // Berita Terkini Section
   newsList: NewsItemData[];
-  // Pelayanan Section
   servicesList: ServiceCardData[];
-  // Footer & Kontak
   footerAbout: string;
   address: string;
   phone: string;
@@ -138,9 +126,7 @@ export interface SiteConfigData {
   contactPersonName?: string;
   gmapsEmbedUrl?: string;
   gmapsLinkUrl?: string;
-  // Uploaded Files Repository (links & device files: doc, pdf, word, png, jpg, gif, mp3, mp4, dll)
   mediaRepository: UploadedMediaItem[];
-  // Differentiated Accounts & Biodata for Admin (50% features) & Developer (100% features)
   adminAccount: AccountProfileData;
   developerAccount: AccountProfileData;
 }
@@ -148,18 +134,17 @@ export interface SiteConfigData {
 export const DEFAULT_SITE_CONFIG: SiteConfigData = {
   brandTitle: 'UPTQ UIN BANDUNG',
   brandSubtitle: 'Bersama Al-Qur\'an, Meraih Kemuliaan',
-  heroKicker: 'Unit Pengembangan Tilawatil Qur\'an UIN SGD Bandung ✨',
+  heroKicker: 'Unit Pengembangan Tilawatil Qur\'ان UIN SGD Bandung ✨',
   heroLeftWebsiteTitle1: 'UPTQ UIN',
   heroLeftWebsiteTitle2: 'BANDUNG',
   heroRightCabinetTitle1: 'KABINET',
   heroRightCabinetTitle2: 'NAHDLATUL QURRA',
-  heroAmbassadorImage:
-    'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=3840&q=100',
+  heroAmbassadorImage: '/developer.png',
   heroAmbassadorImages: [
-    'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=3840&q=100',
-    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=3840&q=100',
-    'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=3840&q=100',
-    'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=3840&q=100',
+    '/developer.png',
+    '/admin.png',
+    '/ba1.png',
+    '/ba2.png',
   ],
   heroAmbassadorName: 'Muhammad Fadhlan, S.Ag.',
   heroAmbassadorRole: 'Brand Ambassador & Ketua Umum UPTQ UIN SGD',
@@ -171,8 +156,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
     'Menjadi pusat informasi, pendaftaran pembinaan, kolaborasi syiar, serta publikasi karya mahasiswa dalam mencetak generasi Qur\'ani yang unggul, moderat, berprestasi, dan berakhlak mulia.',
   heroPrimaryBtn: 'Gabung UPTQ',
   heroSecondaryBtn: 'Lihat Pembinaan',
-  heroBgImage:
-    'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=3840&q=100',
+  heroBgImage: '/wallpaper.png',
   heroVerseArabic: 'وَرَتِّلِ الْقُرْآنَ تَرْتِيلًا',
   heroVerseTranslation: '“Dan bacalah Al-Qur\'an itu dengan perlahan-lahan.” — QS. Al-Muzzammil: 4',
   developerWhatsapp: '6281234567890',
@@ -183,11 +167,9 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
     'UPTQ UIN Bandung lahir dari semangat mahasiswa untuk menghadirkan ruang pengembangan potensi Qur\'ani yang inklusif, profesional, dan berkelanjutan.',
   historyP2:
     'Dari kelompok kajian sederhana, UPTQ berkembang menjadi organisasi yang aktif mencetak qari-qariah, hafiz-hafizah, kaligrafer, dan generasi Qur\'ani berprestasi di tingkat regional hingga nasional.',
-  historyMainImg:
-    'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=3840&q=100',
-  historySmallImg:
-    'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=2560&q=100',
-  historyBadgeNum: '25+',
+  historyMainImg: '/ba1.png',
+  historySmallImg: '/ba2.png',
+  historyBadgeNum: '35+',
   historyBadgeText: 'Tahun Berkarya',
   visionEyebrow: 'Arah Organisasi',
   visionHeading: 'Visi yang Menggerakkan, Misi yang',
@@ -206,8 +188,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
   profileTitle: 'Rumah Tumbuh Generasi Qur\'ani UIN Bandung',
   profileDesc:
     'UPTQ merupakan unit kegiatan mahasiswa yang bergerak dalam pembinaan minat, bakat, dan prestasi di bidang Al-Qur\'an. Kami percaya setiap mahasiswa memiliki jalan unik untuk dekat dengan kitab suci.',
-  profileImg:
-    'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=3840&q=100',
+  profileImg: '/ba3.png',
   profileQuote: '“Bukan sekadar organisasi, tetapi keluarga dalam perjalanan mencintai Al-Qur\'an.”',
   leaders: [
     {
@@ -215,28 +196,35 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
       name: 'Muhammad Fadhlan',
       role: 'Ketua Umum',
       major: 'Mahasiswa Ilmu Al-Qur\'an dan Tafsir',
-      img: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=700&q=85',
+      img: '/developer.png',
     },
     {
       id: 'ld-2',
       name: 'Siti Nur Aulia',
       role: 'Wakil Ketua',
       major: 'Mahasiswi Pendidikan Agama Islam',
-      img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=700&q=85',
+      img: '/admin.png',
     },
     {
       id: 'ld-3',
       name: 'Rizky Ramadhan',
       role: 'Sekretaris Umum',
       major: 'Mahasiswa Manajemen Dakwah',
-      img: 'https://images.unsplash.com/photo-1568602471122-7832951cc4c5?auto=format&fit=crop&w=700&q=85',
+      img: '/ba1.png',
     },
     {
       id: 'ld-4',
       name: 'Nabila Zahra',
       role: 'Bendahara Umum',
       major: 'Mahasiswi Ekonomi Syariah',
-      img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=700&q=85',
+      img: '/ba2.png',
+    },
+    {
+      id: 'ld-5',
+      name: 'Ahmad Fauzi',
+      role: 'Koordinator Pembinaan',
+      major: 'Fakultas Ushuluddin',
+      img: '/ba3.png',
     },
   ],
   divisions: [
@@ -293,8 +281,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
   pembinaanTitle: 'Temukan Potensi Terbaikmu Bersama Al-Qur\'an',
   pembinaanDesc:
     'Pembinaan rutin dibimbing mentor berpengalaman dengan metode ramah pemula, terukur, dan berorientasi prestasi.',
-  pembinaanImg:
-    'https://images.unsplash.com/photo-1596525738055-24e4b3f53aa5?auto=format&fit=crop&w=1000&q=85',
+  pembinaanImg: '/ba4.png',
   programsList: [
     'Tilawah',
     'Tahfiz',
@@ -314,7 +301,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
       title: 'Delegasi UPTQ Raih Lima Juara pada MTQ Mahasiswa Tingkat Nasional',
       excerpt:
         'Prestasi membanggakan kembali diraih melalui cabang tilawah, kaligrafi, fahmil, dan karya tulis Al-Qur\'an.',
-      img: 'https://images.unsplash.com/photo-1585036156171-384164a8c675?auto=format&fit=crop&w=1000&q=85',
+      img: '/ba1.png',
       featured: true,
     },
     {
@@ -323,7 +310,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
       date: '20 April 2025',
       title: 'Upgrading Pengurus: Menguatkan Sinergi dan Profesionalitas',
       excerpt: 'Ruang belajar untuk meningkatkan kapasitas kepemimpinan pengurus.',
-      img: 'https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=800&q=85',
+      img: '/ba2.png',
     },
     {
       id: 'nw-3',
@@ -331,7 +318,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
       date: '12 April 2025',
       title: 'Pembinaan Perdana Disambut Antusias Ratusan Mahasiswa',
       excerpt: 'Program pembinaan kembali dibuka dengan delapan cabang pilihan.',
-      img: 'https://images.unsplash.com/photo-1584286595398-a59f21d313f7?auto=format&fit=crop&w=800&q=85',
+      img: '/ba3.png',
     },
   ],
   servicesList: [
@@ -340,21 +327,21 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
       title: 'Media Partner',
       description: 'Kolaborasi publikasi untuk kegiatan edukatif, kompetisi, seminar, dan agenda keislaman.',
       buttonText: 'Ajukan kerja sama →',
-      img: 'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=900&q=85',
+      img: '/ba1.png',
     },
     {
       id: 'srv-2',
       title: 'Peminjaman Barang',
       description: 'Peminjaman perlengkapan kegiatan seperti sound system, stand banner, dan alat pendukung acara.',
       buttonText: 'Cek ketersediaan →',
-      img: 'https://images.unsplash.com/photo-1598301257982-0cf014dabbcd?auto=format&fit=crop&w=900&q=85',
+      img: '/ba2.png',
     },
     {
       id: 'srv-3',
       title: 'Entertainment',
       description: 'Penampilan qari-qariah, hadrah, nasyid, MC, dan pengisi acara bernuansa Islami.',
       buttonText: 'Pesan layanan →',
-      img: 'https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?auto=format&fit=crop&w=900&q=85',
+      img: '/ba3.png',
     },
   ],
   footerAbout: 'Ruang bertumbuh, belajar, berprestasi, dan mengabdi bersama nilai-nilai Al-Qur\'an.',
@@ -369,28 +356,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
   contactPersonName: 'Humas UPTQ UIN SGD Bandung',
   gmapsEmbedUrl: 'https://www.google.com/maps?q=UIN%20Sunan%20Gunung%20Djati%20Bandung&output=embed',
   gmapsLinkUrl: 'https://maps.google.com/?q=UIN+Sunan+Gunung+Djati+Bandung',
-  mediaRepository: [
-    {
-      id: 'med-1',
-      name: 'Panduan_Musabaqah_UPTQ_2025.pdf',
-      type: 'document',
-      mimeType: 'application/pdf',
-      url: 'https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf',
-      sizeLabel: '245 KB',
-      uploadedAt: '10 Mei 2025',
-      sectionTarget: 'Dokumen Panduan Lomba',
-    },
-    {
-      id: 'med-2',
-      name: 'Silabus_Pembinaan_Tilawah_Tahfidz.docx',
-      type: 'document',
-      mimeType: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
-      url: '#pembinaan',
-      sizeLabel: '180 KB',
-      uploadedAt: '12 Mei 2025',
-      sectionTarget: 'Kurikulum Pembinaan',
-    },
-  ],
+  mediaRepository: [],
   adminAccount: {
     username: 'UPTQJAYA',
     password: 'Z4MZ4M4',
@@ -402,7 +368,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
     phone: '0812-3456-7890',
     email: 'admin@uptq.uinsgd.ac.id',
     bio: 'Bertugas mengelola keanggotaan, kepengurusan, bidang organisasi, pembinaan, agenda, dan berita terkini UPTQ UIN Bandung.',
-    avatarUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=85',
+    avatarUrl: '/admin.png',
   },
   developerAccount: {
     username: 'UPTQJAYA',
@@ -415,7 +381,6 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
     phone: '0812-9988-7766',
     email: 'firman.sidiq216@gmail.com',
     bio: 'Mengelola seluruh isi website, memantau sistem, serta mengatur biodata dan akses login Admin.',
-    avatarUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&q=85',
+    avatarUrl: '/developer.png',
   },
 };
-
