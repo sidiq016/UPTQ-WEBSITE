@@ -6,7 +6,7 @@ import { maqamEngine } from '../utils/audioSynthesizer';
 interface HeroProps {
   onOpenRegister: () => void;
   onOpenQuiz: () => void;
-  heroAmbassadorImage?: string; // Prop tambahan untuk foto Brand Ambassador dinamis
+  heroAmbassadorImage?: string;
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz, heroAmbassadorImage }) => {
@@ -163,7 +163,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz, heroAmba
 
           </div>
 
-          {/* Right Column (5 cols): Modern Luminous Islamic Showcase Card with DYNAMIC AMBASSADOR IMAGE */}
+          {/* Right Column (5 cols): Modern Luminous Islamic Showcase Card with Corrected Image Path */}
           <div className="lg:col-span-5">
             <div className="relative rounded-3xl bg-gradient-to-b from-[#0f345c]/90 via-[#0a233f]/95 to-[#07192f] border border-sky-700/50 p-7 shadow-2xl backdrop-blur-xl space-y-6">
               
@@ -188,10 +188,10 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz, heroAmba
                 </span>
               </div>
 
-              {/* Brand Ambassador / Visual Showcase Frame (Menampilkan Foto Dinamis) */}
+              {/* Brand Ambassador / Visual Showcase Frame (Menggunakan /sarpras.png sesuai file Anda) */}
               <div className="p-4 rounded-2xl bg-gradient-to-br from-[#06182c] to-[#0d2a4a] border border-emerald-400/20 text-center space-y-3 relative overflow-hidden flex flex-col items-center justify-center min-h-[190px]">
                 <img 
-                  src={heroAmbassadorImage || "/developer.png"} 
+                  src={heroAmbassadorImage || "/sarpras.png"} 
                   alt="Brand Ambassador UPTQ" 
                   className="w-28 h-28 object-cover rounded-2xl border-2 border-emerald-400/50 shadow-xl mb-1 object-top"
                 />
@@ -229,7 +229,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz, heroAmba
 
         </div>
 
-        {/* 5 Foto BA (Banner/Aksi) Showcase Row */}
+        {/* 5 Foto BA (Tanpa tanda minus, sesuai file ba1.png - ba5.png) */}
         <div className="mt-16 pt-10 border-t border-sky-800/50">
           <div className="text-center mb-6">
             <span className="text-xs uppercase tracking-widest text-emerald-400 font-bold">Dokumentasi & Galeri Kegiatan</span>
@@ -237,19 +237,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRegister, onOpenQuiz, heroAmba
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             <div className="rounded-2xl overflow-hidden border border-sky-800/60 shadow-lg h-44 bg-slate-900">
-              <img src="/ba-1.png" alt="BA 1" className="w-full h-full object-cover hover:scale-105 transition-transform" />
+              <img src="/ba1.png" alt="BA 1" className="w-full h-full object-cover hover:scale-105 transition-transform" />
             </div>
             <div className="rounded-2xl overflow-hidden border border-sky-800/60 shadow-lg h-44 bg-slate-900">
-              <img src="/ba-2.png" alt="BA 2" className="w-full h-full object-cover hover:scale-105 transition-transform" />
+              <img src="/ba2.png" alt="BA 2" className="w-full h-full object-cover hover:scale-105 transition-transform" />
             </div>
             <div className="rounded-2xl overflow-hidden border border-sky-800/60 shadow-lg h-44 bg-slate-900">
-              <img src="/ba-3.png" alt="BA 3" className="w-full h-full object-cover hover:scale-105 transition-transform" />
+              <img src="/ba3.png" alt="BA 3" className="w-full h-full object-cover hover:scale-105 transition-transform" />
             </div>
             <div className="rounded-2xl overflow-hidden border border-sky-800/60 shadow-lg h-44 bg-slate-900">
-              <img src="/ba-4.png" alt="BA 4" className="w-full h-full object-cover hover:scale-105 transition-transform" />
+              <img src="/ba4.png" alt="BA 4" className="w-full h-full object-cover hover:scale-105 transition-transform" />
             </div>
             <div className="rounded-2xl overflow-hidden border border-sky-800/60 shadow-lg h-44 bg-slate-900 col-span-2 sm:col-span-1">
-              <img src="/ba-5.png" alt="BA 5" className="w-full h-full object-cover hover:scale-105 transition-transform" />
+              <img src="/ba5.png" alt="BA 5" className="w-full h-full object-cover hover:scale-105 transition-transform" />
             </div>
           </div>
         </div>
