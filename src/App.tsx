@@ -43,12 +43,9 @@ import {
   Facebook,
   X,
   Send,
-  ArrowUp,
   CircleCheck,
   Menu,
-  Settings,
   Download,
-  ExternalLink,
   Image as ImageIcon,
   Music,
   Video,
@@ -241,11 +238,9 @@ const INITIAL_SUBMISSIONS: ServiceSubmission[] = [
 ];
 
 export default function App() {
-  // Mobile navigation state
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
 
-  // Scrolled header, active navbar filter & language state
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeNavFilter, setActiveNavFilter] = useState<string>('home');
   const navClickLockRef = useRef<boolean>(false);
@@ -260,13 +255,9 @@ export default function App() {
   const [lang, setLang] = useState<SiteLanguage>('id');
   const t = (text: string | undefined) => trText(text, lang);
 
-  // Content tab filter
   const [contentFilter, setContentFilter] = useState<'all' | 'event' | 'artikel' | 'lomba' | 'rekaman'>('all');
-
-  // Audio playing state
   const [playingAudioId, setPlayingAudioId] = useState<string | null>(null);
 
-  // Modal form state
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalService, setModalService] = useState('Pendaftaran Anggota');
   const [formName, setFormName] = useState('');
@@ -274,13 +265,9 @@ export default function App() {
   const [formEmail, setFormEmail] = useState('');
   const [formMessage, setFormMessage] = useState('');
 
-  // Toast state
   const [showToast, setShowToast] = useState(false);
+  const [calendarDate, setCalendarDate] = useState(new Date(2025, 4, 1));
 
-  // Calendar date
-  const [calendarDate, setCalendarDate] = useState(new Date(2025, 4, 1)); // May 2025
-
-  // ADMIN & DEVELOPER PORTAL ROLE STATE ('admin' = 50% features, 'developer' = 100% features)
   const [loggedInRole, setLoggedInRole] = useState<'admin' | 'developer' | null>(() => {
     const savedRole = localStorage.getItem('uptq_active_role_v2');
     if (savedRole === 'admin' || savedRole === 'developer') return savedRole;
@@ -289,7 +276,6 @@ export default function App() {
   const isAdminLoggedIn = loggedInRole !== null;
   const [currentView, setCurrentView] = useState<'website' | 'admin'>('website');
 
-  // Full Editable Website Configuration (Hero, Sejarah, Visi Misi, Kepengurusan, Bidang, Berita, Kontak, Media Repository, Accounts)
   const [siteConfig, setSiteConfig] = useState<SiteConfigData>(() => {
     try {
       const saved = localStorage.getItem('uptq_site_config_v6');
@@ -325,7 +311,6 @@ export default function App() {
     }
   });
 
-  // Brand Ambassador Multi-Pose Photo Slider (Min 3 Photos, Max 5 Photos) in 4K UHD Resolution
   const ambassadorSlidePhotos = React.useMemo(() => {
     const upgradeTo4K = (url: string) =>
       url.includes('images.unsplash.com')
@@ -355,7 +340,6 @@ export default function App() {
     return () => clearInterval(slideInterval);
   }, [currentView, ambassadorSlidePhotos.length]);
 
-  // Dynamic Editable Data (Stats, Agendas, Contents, Submissions)
   const [stats, setStats] = useState(() => {
     try {
       const saved = localStorage.getItem('uptq_stats');
@@ -396,7 +380,6 @@ export default function App() {
     }
   });
 
-  // Animated counters state for smooth stats appearance
   const [displayedMembers, setDisplayedMembers] = useState(0);
   const [displayedAchievements, setDisplayedAchievements] = useState(0);
   const [displayedPrograms, setDisplayedPrograms] = useState(0);
@@ -404,13 +387,10 @@ export default function App() {
   const statsRef = useRef<HTMLDivElement>(null);
   const hasAnimatedStats = useRef(false);
 
-  // Save to local storage on changes
   useEffect(() => {
     try {
       localStorage.setItem('uptq_site_config_v6', JSON.stringify(siteConfig));
-    } catch {
-      // Ignore quota errors if large device files are uploaded in session
-    }
+    } catch {}
   }, [siteConfig]);
 
   useEffect(() => {
@@ -424,16 +404,13 @@ export default function App() {
   useEffect(() => {
     try {
       localStorage.setItem('uptq_contents', JSON.stringify(contents));
-    } catch {
-      // Ignore storage quota if large base64 file attached
-    }
+    } catch {}
   }, [contents]);
 
   useEffect(() => {
     localStorage.setItem('uptq_submissions', JSON.stringify(submissions));
   }, [submissions]);
 
-  // Two-Way Scroll Roll-In & Roll-Out Observer + Header State
   useEffect(() => {
     let rafId: number | null = null;
 
@@ -442,26 +419,18 @@ export default function App() {
       const revealElements = document.querySelectorAll('.reveal, .stagger');
       revealElements.forEach((el) => {
         const rect = el.getBoundingClientRect();
-        // Scrolled past above viewport -> Bergulir keluar menghilang
         if (rect.bottom < vh * 0.15) {
           el.setAttribute('data-scroll', 'out-top');
-        }
-        // Below viewport waiting to be scrolled to -> Siap bergulir masuk
-        else if (rect.top > vh * 0.88) {
+        } else if (rect.top > vh * 0.88) {
           el.setAttribute('data-scroll', 'out-bottom');
-        }
-        // Inside active viewport -> Bergulir muncul
-        else {
+        } else {
           el.setAttribute('data-scroll', 'in');
         }
       });
     };
 
     const updateActiveNavFromScroll = () => {
-      // Do not overwrite the clicked navbar filter while programmatic smooth-scrolling is active
-      if (navClickLockRef.current) {
-        return;
-      }
+      if (navClickLockRef.current) return;
       const sectionOrder = [
         'pelayanan',
         'konten',
@@ -488,7 +457,6 @@ export default function App() {
       }
     };
 
-    // Release navbar click lock only when user manually scrolls via mouse wheel or touch
     const releaseNavLockOnManualScroll = () => {
       if (navClickLockRef.current && performance.now() - navClickTimestampRef.current > 180) {
         navClickLockRef.current = false;
@@ -513,7 +481,6 @@ export default function App() {
     handleScroll();
     updateScrollAnimations();
 
-    // Secret Keyboard Shortcut Listener: Shift + Ctrl + Q
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.ctrlKey || e.metaKey) && e.shiftKey && (e.key.toLowerCase() === 'q' || e.code === 'KeyQ')) {
         e.preventDefault();
@@ -523,7 +490,6 @@ export default function App() {
 
     window.addEventListener('keydown', handleKeyDown);
 
-    // Stats counter animation observer
     const statsObserver = new IntersectionObserver(
       (entries) => {
         if (entries[0].isIntersecting && !hasAnimatedStats.current) {
@@ -567,7 +533,6 @@ export default function App() {
     };
   }, [stats, currentView, contentFilter]);
 
-  // Handle body lock
   useEffect(() => {
     if (isMenuOpen) {
       document.body.classList.add('menu-open');
@@ -584,7 +549,6 @@ export default function App() {
     }
   }, [isModalOpen]);
 
-  // Modal open/close handlers
   const openServiceModal = (serviceName: string) => {
     setModalService(serviceName);
     setIsModalOpen(true);
@@ -594,7 +558,6 @@ export default function App() {
     setIsModalOpen(false);
   };
 
-  // When user submits the service form, save directly into admin inbox
   const handleFormSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     const newSub: ServiceSubmission = {
@@ -623,7 +586,6 @@ export default function App() {
     setTimeout(() => setShowToast(false), 4200);
   };
 
-  // Admin & Developer login / logout
   const handleAdminLoginSuccess = (role: 'admin' | 'developer') => {
     setLoggedInRole(role);
     localStorage.setItem('uptq_active_role_v2', role);
@@ -636,12 +598,10 @@ export default function App() {
     setCurrentView('website');
   };
 
-  // Audio player toggle
   const toggleAudio = (id: string) => {
     setPlayingAudioId(playingAudioId === id ? null : id);
   };
 
-  // Calendar logic
   const monthNames =
     lang === 'en'
       ? [
@@ -693,7 +653,6 @@ export default function App() {
 
   const serviceIcons = [RadioTower, PackageOpen, MicVocal];
 
-  // If in dedicated Admin & Developer Dashboard View, render the full-screen AdminPortal
   if (currentView === 'admin') {
     return (
       <AdminPortal
@@ -722,7 +681,10 @@ export default function App() {
 
   return (
     <>
-      {/* Preloader Split-Curtain Loading Screen Before Website Opens (5 Seconds 0%-100%) */}
+      {/* Backsound Musik Latar Otomatis Berputar Saat Website Dibuka */}
+      <audio src="/backsound.mp3" autoPlay loop preload="auto" />
+
+      {/* Preloader Split-Curtain Loading Screen */}
       <PreloaderScreen
         brandLogoUrl={siteConfig.brandLogoUrl}
         brandTitle={siteConfig.brandTitle}
@@ -732,7 +694,6 @@ export default function App() {
         {lang === 'en' ? 'Skip to main content' : 'Lewati ke konten utama'}
       </a>
 
-      {/* Admin / Developer Quick Floating Bar when logged in */}
       {isAdminLoggedIn && (
         <div className="admin-bar">
           <div className="container flex items-center justify-between gap-4">
@@ -777,7 +738,6 @@ export default function App() {
         </div>
       )}
 
-      {/* Floating Capsule Top Navbar with Animated Active Filter Background */}
       <header className={`header ${isScrolled ? 'scrolled' : ''}`} id="header">
         <div className="nav-wrap">
           <a
@@ -1060,15 +1020,8 @@ export default function App() {
         </div>
       </header>
 
-      {/* Main Content */}
       <main id="main">
-        {/* =====================================================================
-            FOTO 1 -> FOTO 2 HERO SECTION:
-            CENTER BRAND AMBASSADOR PORTRAIT + LEFT 3D WEBSITE NAME + RIGHT 3D CABINET NAME
-            + BOTTOM WEBSITE PURPOSE DESCRIPTION
-           ===================================================================== */}
         <section className="hero-ambassador-section" id="home">
-          {/* Subtle ornamental background texture */}
           <div
             className="hero-ambassador-bg-ornament"
             style={{
@@ -1078,17 +1031,13 @@ export default function App() {
           ></div>
           <div className="hero-ambassador-radial-aura" aria-hidden="true"></div>
 
-          {/* Top Kicker Badge */}
           <div className="relative z-10 flex flex-col items-center text-center reveal">
             <div className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-white/10 border border-[#f5c542]/45 text-[#f5c542] text-xs font-extrabold tracking-wider uppercase backdrop-blur-md shadow-lg">
               <span>{t(siteConfig.heroKicker)}</span>
             </div>
           </div>
 
-          {/* 3-Column 3D Stage:
-              Left = 3D UPTQ UIN BANDUNG | Center = Realistic 3D Multi-Pose Brand Ambassador Slider | Right = 3D KABINET NAHDLATUL QURRA */}
           <div className="hero-ambassador-stage reveal">
-            {/* LEFT: 3D Nama Website ("UPTQ UIN BANDUNG") */}
             <div className="hero-ambassador-left-text">
               <span className="hero-ambassador-left-line1">
                 {siteConfig.heroLeftWebsiteTitle1 || 'UPTQ UIN'}
@@ -1098,7 +1047,6 @@ export default function App() {
               </span>
             </div>
 
-            {/* CENTER: Photorealistic 3D Brand Ambassador (Slide 3–5 Foto Pose Berbeda) */}
             <div className="hero-ambassador-center-figure">
               <div className="hero-ambassador-frame-glow" aria-hidden="true"></div>
               <div
@@ -1124,7 +1072,6 @@ export default function App() {
                 ))}
               </div>
 
-              {/* Slide Dots Indicator (Min 3 - Max 5 Photos) */}
               {ambassadorSlidePhotos.length > 1 && (
                 <div className="hero-ambassador-slide-dots" role="tablist" aria-label="Slide Foto Brand Ambassador">
                   {ambassadorSlidePhotos.map((_, idx) => (
@@ -1142,7 +1089,6 @@ export default function App() {
               )}
             </div>
 
-            {/* RIGHT: 3D Nama Kabinet ("KABINET NAHDLATUL QURRA") */}
             <div className="hero-ambassador-right-text">
               <span className="hero-ambassador-right-line1">
                 {t(siteConfig.heroRightCabinetTitle1 || 'KABINET')}
@@ -1153,7 +1099,6 @@ export default function App() {
             </div>
           </div>
 
-          {/* BELOW HUMAN SUBJECT: Keterangan Tujuan Mengenai Websitenya */}
           <div className="hero-ambassador-purpose-box reveal">
             <h1 className="text-xl sm:text-2xl md:text-3xl font-extrabold text-white tracking-tight mb-2.5">
               {t(siteConfig.heroTitle)}
@@ -1163,7 +1108,6 @@ export default function App() {
               {t(siteConfig.heroPurposeDescription || siteConfig.heroSubtitle)}
             </p>
 
-            {/* Qur'anic Verse Highlight */}
             <div className="py-2.5 px-5 rounded-2xl bg-white/8 backdrop-blur-md border border-white/20 inline-block mb-5">
               <p className="font-serif text-lg sm:text-xl text-[#f5c542]" lang="ar" dir="rtl">
                 {siteConfig.heroVerseArabic}
@@ -1173,7 +1117,6 @@ export default function App() {
               </p>
             </div>
 
-            {/* Action Buttons */}
             <div className="flex flex-wrap items-center justify-center gap-4">
               <button
                 type="button"
@@ -1199,7 +1142,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Sejarah Section */}
         <section id="sejarah">
           <div className="container history-grid">
             <div className="history-media reveal from-left">
@@ -1257,7 +1199,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Stats Section with Smooth Counter */}
         <div className="stats-section" ref={statsRef}>
           <div className="container">
             <div className="stats-panel stagger">
@@ -1300,7 +1241,6 @@ export default function App() {
           </div>
         </div>
 
-        {/* Vision & Mission Section */}
         <section className="section-soft" id="visi-misi">
           <div className="container">
             <div className="section-heading center reveal">
@@ -1333,7 +1273,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Profile Intro Section */}
         <section className="profile-intro" id="profil">
           <div className="container profile-grid">
             <div className="reveal from-left">
@@ -1388,7 +1327,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Leadership Section */}
         <section id="kepengurusan">
           <div className="container">
             <div className="section-heading reveal">
@@ -1420,7 +1358,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Bidang Organisasi Section */}
         <section className="section-soft" id="bidang">
           <div className="container">
             <div className="section-heading center reveal">
@@ -1456,7 +1393,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Development & Pembinaan Section */}
         <section id="pembinaan">
           <div className="container">
             <div className="development-box reveal">
@@ -1490,7 +1426,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Agenda Section with Live Calendar */}
         <section className="section-soft" id="agenda">
           <div className="container">
             <div className="section-heading reveal">
@@ -1587,7 +1522,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Berita Section */}
         <section id="berita">
           <div className="container">
             <div className="section-heading reveal">
@@ -1632,7 +1566,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Content Tabs Section + Uploaded Documents/Media Repository */}
         <section className="section-soft" id="konten">
           <div className="container">
             <div className="section-heading center reveal">
@@ -1724,7 +1657,6 @@ export default function App() {
               ))}
             </div>
 
-            {/* Uploaded Media & Document Repository Showcase */}
             {siteConfig.mediaRepository && siteConfig.mediaRepository.length > 0 && (
               <div className="mt-14 pt-10 border-t border-slate-200/80 reveal">
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
@@ -1803,7 +1735,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* Pelayanan Section */}
         <section id="pelayanan">
           <div className="container">
             <div className="section-heading center reveal">
@@ -1844,7 +1775,6 @@ export default function App() {
           </div>
         </section>
 
-        {/* CTA Section */}
         <section className="cta-section">
           <div className="container">
             <div className="cta-box reveal">
@@ -1877,7 +1807,6 @@ export default function App() {
         </section>
       </main>
 
-      {/* Footer */}
       <footer className="footer" id="kontak">
         <div className="container footer-grid">
           <div>
@@ -1984,7 +1913,6 @@ export default function App() {
         </div>
       </footer>
 
-      {/* Service / Membership Registration Modal */}
       <div className={`modal ${isModalOpen ? 'show' : ''}`} role="dialog" aria-modal="true" aria-labelledby="modalTitle">
         <div className="modal-panel">
           <button
@@ -2092,7 +2020,6 @@ export default function App() {
         </div>
       </div>
 
-      {/* Toast Notification */}
       <div className={`toast ${showToast ? 'show' : ''}`} role="status" aria-live="polite">
         <CircleCheck />
         <span>
@@ -2102,7 +2029,6 @@ export default function App() {
         </span>
       </div>
 
-      {/* Bottom-Right Language / Translate Toggle Button (ID Flag + ID <-> UK Flag + EN) */}
       <button
         type="button"
         className="uptq-lang-toggle-fab"
@@ -2112,7 +2038,6 @@ export default function App() {
       >
         {lang === 'id' ? (
           <>
-            {/* Bendera Indonesia (Merah Putih) */}
             <svg
               width="22"
               height="16"
@@ -2127,7 +2052,6 @@ export default function App() {
           </>
         ) : (
           <>
-            {/* Bendera Inggris / UK (Union Jack) */}
             <svg
               width="22"
               height="16"
@@ -2148,4 +2072,3 @@ export default function App() {
     </>
   );
 }
-
