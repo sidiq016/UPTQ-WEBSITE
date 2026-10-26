@@ -276,7 +276,7 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
   pembinaanTitle: 'Temukan Potensi Terbaikmu Bersama Al-Qur\'an',
   pembinaanDesc:
     'Pembinaan rutin dibimbing mentor berpengalaman dengan metode ramah pemula, terukur, dan berorientasi prestasi.',
-  pembinaanImg: '/ba4.png',
+  pembinaanImg: '/program.png',
   programsList: [
     'Tilawah',
     'Tahfiz',
@@ -296,24 +296,8 @@ export const DEFAULT_SITE_CONFIG: SiteConfigData = {
       title: 'Delegasi UPTQ Raih Lima Juara pada MTQ Mahasiswa Tingkat Nasional',
       excerpt:
         'Prestasi membanggakan kembali diraih melalui cabang tilawah, kaligrafi, fahmil, dan karya tulis Al-Qur\'an.',
-      img: '/ba1.png',
+      img: '/berita.png',
       featured: true,
-    },
-    {
-      id: 'nw-2',
-      category: 'Kaderisasi',
-      date: '20 April 2025',
-      title: 'Upgrading Pengurus: Menguatkan Sinergi dan Profesionalitas',
-      excerpt: 'Ruang belajar untuk meningkatkan kapasitas kepemimpinan pengurus.',
-      img: '/ba2.png',
-    },
-    {
-      id: 'nw-3',
-      category: 'Pembinaan',
-      date: '12 April 2025',
-      title: 'Pembinaan Perdana Disambut Antusias Ratusan Mahasiswa',
-      excerpt: 'Program pembinaan kembali dibuka dengan delapan cabang pilihan.',
-      img: '/ba3.png',
     },
   ],
   servicesList: [
